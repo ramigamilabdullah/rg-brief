@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>RG-Designs — Design brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0e0e0e;--surface:#161616;--surface2:#1e1e1e;--border:#2e2e2e;--fg:#f0ede8;--muted:#8d877f;--accent:#C9A84C;--accent-light:#251e0e;--accent-dark:#a8842e;--ok:#2d7a4f;--bad:#c0463f;--fd:'Cairo',system-ui,sans-serif;--fb:'IBM Plex Sans Arabic','Cairo',system-ui,sans-serif;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--fb);font-size:15px;line-height:1.7;min-height:100vh;padding-inline:max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-left))}
+html[dir=ltr] body{font-family:'IBM Plex Sans Arabic',system-ui,-apple-system,"Segoe UI",sans-serif}
+.hdr{background:#020101;border-bottom:2px solid var(--accent);margin-inline:calc(-1*max(16px,env(safe-area-inset-right))) calc(-1*max(16px,env(safe-area-inset-left)));margin-bottom:22px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:1px solid #1a1a1a;background:#0a0a0a;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+.logo svg{width:36px;height:36px;border-radius:3px;flex-shrink:0}
+.logo b{font-family:var(--fd);font-size:15px;font-weight:900;display:block;line-height:1.2}
+.logo small{font-size:10px;color:var(--accent);font-weight:600;letter-spacing:.3px;direction:ltr;display:block}
+.lang{background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:4px;padding:5px 12px;cursor:pointer;font:600 12px var(--fd)}
+.lang:hover{border-color:var(--accent);color:var(--accent)}
+.hin{max-width:820px;margin-inline:auto;padding:22px 20px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.lbl{font-size:10px;font-weight:700;color:var(--accent);margin-bottom:4px}
+h1{font-family:var(--fd);font-size:clamp(22px,4vw,32px);font-weight:900;line-height:1.2}
+.sub{font-size:13px;color:var(--muted);margin-top:4px}
+.badge{background:var(--accent);color:#020101;font:700 11px var(--fd);padding:5px 14px;border-radius:2px;white-space:nowrap;align-self:flex-start;margin-top:4px}
+main{max-width:820px;margin-inline:auto;padding-bottom:70px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:18px;overflow:hidden}
+.ch{background:var(--surface2);padding:12px 18px;display:flex;align-items:center;gap:12px;border-inline-start:3px solid var(--accent)}
+.ch .n{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--accent);line-height:1;min-width:30px}
+.ch .t{font-family:var(--fd);font-size:14px;font-weight:700}
+.cb{padding:18px;display:grid;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.f{display:flex;flex-direction:column;gap:5px}
+.f.full{grid-column:1/-1}
+label.l{font-size:12px;font-weight:600;color:var(--muted)}
+.star{color:var(--accent);margin-inline-end:3px}
+input[type=text],input[type=number],input[type=date],input[type=email],textarea,select{background:var(--surface2);border:1.5px solid var(--border);border-radius:5px;color:var(--fg);font-family:inherit;font-size:14px;padding:9px 12px;width:100%;transition:border-color .15s,box-shadow .15s;appearance:none;-webkit-appearance:none}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
+textarea{resize:vertical;min-height:78px}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7570' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center;padding-inline-start:36px;cursor:pointer}
+html[dir=ltr] select{background-position:right 12px center;padding-inline-start:12px;padding-inline-end:36px}
+select option{background:var(--surface2)}
+.f.bad input,.f.bad textarea,.f.bad select,.f.bad .grid{border-color:var(--bad)}
+.f .err{font-size:11.5px;color:#e8857f;display:none}
+.f.bad .err{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;border:1.5px solid transparent;border-radius:6px}
+.ck{display:flex;align-items:center;gap:8px;cursor:pointer;padding:8px 10px;border:1.5px solid var(--border);border-radius:5px;transition:border-color .12s,background .12s;user-select:none;font-size:13px}
+.ck:hover{border-color:var(--accent);background:var(--accent-light)}
+.ck input{width:16px;height:16px;accent-color:var(--accent);flex-shrink:0;cursor:pointer}
+.ck.on{border-color:var(--accent);background:var(--accent-light)}
+.up{border:1.5px dashed var(--border);border-radius:6px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;background:var(--surface2);position:relative;min-height:68px;justify-content:center;text-align:center;font-size:12px;color:var(--muted)}
+.up:hover{border-color:var(--accent);background:var(--accent-light)}
+.up input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.up .ic{font-size:22px;line-height:1}
+.fl{display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.fi{display:flex;align-items:center;justify-content:space-between;background:var(--accent-light);border:1px solid var(--accent);border-radius:4px;padding:5px 10px;font-size:12px;gap:8px}
+.fi .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.fi .sz{color:var(--muted);flex-shrink:0;font-size:11px}
+.fi .x{background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;line-height:1}
+.fi .x:hover{color:#e55}
+.fi.uploading{border-style:dashed;opacity:.8}
+.fi .bar{height:3px;background:var(--accent);width:0;transition:width .2s}
+.btn{background:var(--accent);color:#020101;border:none;border-radius:4px;font:700 14px var(--fd);padding:13px 40px;cursor:pointer;transition:background .15s,transform .1s;width:100%;max-width:340px}
+.btn:hover{background:var(--accent-dark);color:#fff}
+.btn:active{transform:scale(.98)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.btn.ghost{background:transparent;border:1.5px solid var(--border);color:var(--muted);font-weight:500;font-size:13px;padding:10px 24px}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);background:transparent}
+.acts{margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.foot{text-align:center;font-size:12px;color:var(--muted);padding-top:8px}
+.foot b{color:var(--accent)}
+.toast{position:fixed;bottom:max(24px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(20px);background:var(--ok);color:#fff;padding:12px 22px;border-radius:6px;font:600 14px var(--fd);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:99;max-width:90vw;text-align:center}
+.toast.bad{background:var(--bad)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.prog{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 10px}
+.prog .pb{height:6px;background:var(--surface2);border-radius:3px;overflow:hidden}
+.prog .pb i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.prog .pt{font-size:11.5px;color:var(--muted);margin-top:4px;display:flex;justify-content:space-between}
+.tpls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tpl{background:var(--surface);border:1.5px solid var(--border);border-radius:8px;padding:22px 16px;cursor:pointer;text-align:center;transition:border-color .15s,transform .1s}
+.tpl:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tpl .ic{font-size:34px;line-height:1;margin-bottom:8px}
+.tpl b{font-family:var(--fd);font-size:15px;display:block}
+.tpl small{color:var(--muted);font-size:12px}
+.list .it{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;border-top:1px solid var(--border);flex-wrap:wrap}
+.list .it:first-child{border-top:none}
+.list b{font-family:var(--fd)}
+.pill{font-size:11px;padding:3px 10px;border-radius:12px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);white-space:nowrap}
+.pill.ok{color:#8fd3a5;border-color:#2d7a4f}
+.pill.gold{color:var(--accent);border-color:var(--accent)}
+.muted{color:var(--muted)}
+.sm{font-size:12.5px}
+.done{text-align:center;padding:40px 18px}
+.done .big{font-size:54px;line-height:1;margin-bottom:12px}
+.done h2{font-family:var(--fd);font-size:24px;margin-bottom:8px}
+.hint{font-size:12px;color:var(--muted);margin-top:2px}
+.link{color:var(--accent);text-decoration:none}
+.center{text-align:center}
+.secnav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.secnav a{font-size:11.5px;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:12px;padding:2px 10px}
+.secnav a:hover{color:var(--accent);border-color:var(--accent)}
+@media print{.hdr,.prog,.acts,.lang,.secnav{display:none!important}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<script>window.RGB={"api":"https://pdc.tail951c24.ts.net/s/b","token":"","lang":"ar"};</script>
+<script>/* RG-Designs CRM — fix58: the project brief form (Nadia's intake questionnaire, 26/10/2026) — one definition for the office form,
+   the client page (/s/b/<token>, Arabic + English) and the server (validation + mapping onto the project fields that price the job).
+   UMD like pricing.js: the browser gets window.RGBriefDef, the server require()s it. No dependencies. */
+(function (root, factory) {
+  if (typeof module === "object" && module.exports) module.exports = factory(); else root.RGBriefDef = factory();
+})(typeof self !== "undefined" ? self : this, function () {
+  "use strict";
+  var VERSION = 1;
+  /* option lists: [value, Arabic, English] */
+  var O = {
+    prev: [["same", "نعم — نفس الأسلوب", "Yes — same style"], ["change", "نعم — تغيير كامل", "Yes — a completely new look"], ["first", "لا — أول مشاركة", "No — first participation"]],
+    boothType: [["island", "جزيرة — مفتوح من 4 جهات", "Island — open on 4 sides"], ["corner", "زاوية — مفتوح من جهتين", "Corner — open on 2 sides"], ["row", "صف — مفتوح من جهة واحدة", "Inline — open on 1 side"], ["peninsula", "بنينسولا — مفتوح من 3 جهات", "Peninsula — open on 3 sides"], ["tbd", "لسه مش محدد", "Not decided yet"]],
+    floorPlan: [["send", "أيوه — هبعته", "Yes — I will send it"], ["site", "أيوه — على موقع المعرض", "Yes — on the show website"], ["later", "لا — هيتوفر بعدين", "Not yet — will follow"], ["none", "لا — التصميم بالمقاسات بس", "No — design from the dimensions only"]],
+    goalsBooth: [["aware", "تعزيز الوعي بالعلامة", "Brand awareness"], ["clients", "عملاء جدد", "New clients"], ["launch", "إطلاق منتج", "Product launch"], ["b2b", "اجتماعات B2B", "B2B meetings"], ["dist", "البحث عن موزعين", "Finding distributors"], ["presence", "الحضور في السوق", "Market presence"]],
+    goalsEvent: [["aware", "تعزيز الوعي بالعلامة", "Brand awareness"], ["launch", "إطلاق منتج / خدمة", "Product / service launch"], ["network", "تواصل وبناء علاقات", "Networking"], ["staff", "احتفالية للموظفين", "Employee celebration"], ["awards", "توزيع جوائز وتكريم", "Awards & recognition"], ["media", "تغطية إعلامية", "Media coverage"], ["clients", "تعزيز علاقات العملاء", "Client relations"], ["training", "تدريب وتثقيف", "Training / education"]],
+    style: [["luxury", "فاخر وراقي", "Luxury & elegant"], ["minimal", "عصري ومبسّط", "Modern & minimal"], ["bold", "جريء وملفت", "Bold & vibrant"], ["corporate", "مؤسسي ورسمي", "Corporate & formal"], ["natural", "طبيعي وعضوي", "Natural & organic"], ["tech", "تكنولوجي ومستقبلي", "Tech & futuristic"], ["heritage", "تراثي وكلاسيكي", "Heritage & classic"], ["open", "مفتوح وودّي", "Open & friendly"], ["festive", "احتفالي ومبهج", "Festive & joyful"]],
+    elemsBooth: [["reception", "كاونتر استقبال", "Reception counter"], ["meeting", "منطقة اجتماعات", "Meeting area"], ["display", "عرض منتجات (رفوف / فيترينات)", "Product display (shelves / showcases)"], ["storage", "غرفة تخزين", "Storage room"], ["led", "شاشة LED / فيديو", "LED screen / video"], ["demo", "منطقة تجربة / ديمو", "Demo area"], ["seating", "جلسة للزوار", "Visitor seating"], ["kitchen", "كيتشنيت / ثلاجة", "Kitchenette / fridge"], ["photo", "جدار صور / خلفية تصوير", "Photo wall / backdrop"], ["tasting", "كاونتر تذوق", "Tasting counter"], ["kiosk", "كشك معلومات / تفاعلي", "Info / interactive kiosk"], ["vip", "منطقة استراحة VIP", "VIP lounge"], ["hanging", "عنصر معلّق / هانجينج", "Hanging element"], ["double", "دور تاني (دبل ديك)", "Double deck"]],
+    elemsEvent: [["stage", "منصة / ستيج رئيسي", "Main stage"], ["backdrop", "باك دروب / خلفية تصوير", "Backdrop / photo wall"], ["ledwall", "جدار LED / شاشات", "LED wall / screens"], ["gate", "بوابة دخول / استقبال", "Entrance gate / reception"], ["reg", "كاونتر تسجيل", "Registration desk"], ["seating", "ترتيب وتصميم المقاعد", "Seating design"], ["vip", "منطقة VIP", "VIP area"], ["catering", "منطقة كوكتيل / بوفيه", "Cocktail / buffet area"], ["photo", "زون تصوير تفاعلي", "Interactive photo zone"], ["signage", "لافتات وسيناليتيك", "Signage & wayfinding"], ["lighting", "تصميم إضاءة", "Lighting design"], ["floral", "ديكور زهور", "Floral décor"], ["display", "منطقة عرض منتجات", "Product display area"], ["media", "ركن إعلام وتصوير", "Media corner"], ["outdoor", "عناصر خارجية (أوت دور)", "Outdoor elements"]],
+    display: [["shelves", "رفوف عرض", "Shelves"], ["vitrine", "فيترينات زجاجية", "Glass showcases"], ["podium", "بوديوم / منصات", "Podiums / plinths"], ["hanging", "عرض معلّق", "Hanging display"], ["table", "طاولات عرض", "Display tables"], ["wall", "تثبيت على الجدار", "Wall mounted"]],
+    entrance: [["front", "الواجهة الأمامية", "Front"], ["right", "الجانب الأيمن", "Right side"], ["left", "الجانب الأيسر", "Left side"], ["corner", "من الزاوية", "Corner"], ["all", "مفتوح من كل الجهات", "Open from all sides"], ["tbd", "غير محدد", "Not decided"]],
+    /* what RG delivers — the first five are the CRM/invoice deliverables (pricing.js DELIVERABLES), the rest stay in the brief */
+    delivBooth: [["renders", "صور ريندر 3D", "Photorealistic 3D renders"], ["anim", "فيديو أنيميشن", "Animation video"], ["shop", "مقاسات تنفيذية (شوب دروينج)", "Technical / shop drawings"], ["pres", "ملف عرض للعميل (بريزنتيشن)", "Client presentation file"], ["psd", "مقاسات فوتوشوب (طول × عرض)", "Photoshop dimensions (H × W)"], ["layout2d", "مخطط 2D للتوزيع", "2D layout plan"], ["mood", "مود بورد / كونسبت", "Mood board / concept"], ["v360", "جولة 360°", "360° walkthrough"], ["print", "ملفات طباعة", "Print-ready files"], ["supplier", "بريف للمورد / المنفذ", "Supplier / contractor brief"]],
+    delivEvent: [["renders", "صور ريندر 3D", "Photorealistic 3D renders"], ["anim", "فيديو أنيميشن", "Animation video"], ["shop", "مقاسات تنفيذية (شوب دروينج)", "Technical / shop drawings"], ["pres", "ملف عرض للعميل (بريزنتيشن)", "Client presentation file"], ["psd", "مقاسات فوتوشوب (طول × عرض)", "Photoshop dimensions (H × W)"], ["layout2d", "مخطط 2D للقاعة", "2D hall layout"], ["mood", "مود بورد / كونسبت", "Mood board / concept"], ["v360", "جولة 360°", "360° walkthrough"], ["signage", "تصميم سيناليتيك", "Signage design"], ["ledcontent", "محتوى شاشات LED", "LED screen content"], ["invite", "تصميم دعوة / إعلان", "Invitation / announcement design"], ["print", "ملفات طباعة", "Print-ready files"]],
+    delivGfx: [["print", "ملفات طباعة", "Print-ready files"], ["source", "ملفات مفتوحة (AI / PSD)", "Open source files (AI / PSD)"], ["social", "مقاسات سوشيال ميديا", "Social media sizes"], ["pres", "ملف عرض", "Presentation file"]],
+    dayNight: [["day", "نهاري", "Day"], ["night", "ليلي", "Night"], ["both", "الاتنين", "Both"], ["any", "مش مهم", "Either"]],
+    revisions: [["1", "جولة واحدة", "One round"], ["2", "جولتين", "Two rounds"], ["3", "3 جولات", "Three rounds"], ["open", "غير محدد", "Not fixed"]],
+    media: [["pro", "تصوير احترافي + سوشيال ميديا", "Professional photography + social media"], ["tv", "تغطية تليفزيونية", "TV coverage"], ["internal", "تصوير داخلي بس", "Internal photos only"], ["none", "لا", "None"]],
+    budget: [["eco", "اقتصادي — أقل تكلفة", "Economy — lowest cost"], ["mid", "متوسط — جودة مع مراعاة التكلفة", "Mid — quality at a sensible cost"], ["high", "مرتفع — الجودة أولاً", "High — quality first"], ["open", "بدون سقف — مشروع مميز", "No ceiling — a showcase project"]],
+    eventType: [["conf", "مؤتمر / قمة", "Conference / summit"], ["awards", "حفل توزيع جوائز", "Awards ceremony"], ["launch", "إطلاق منتج / علامة", "Product / brand launch"], ["expo", "معرض / عرض تجاري", "Exhibition / trade show"], ["corp", "حفل شركة / احتفالية", "Corporate party / celebration"], ["press", "مؤتمر صحفي", "Press conference"], ["gov", "إيفنت حكومي / رسمي", "Government / official event"], ["concert", "حفل موسيقي / ترفيهي", "Concert / entertainment"], ["charity", "فعالية خيرية / اجتماعية", "Charity / social event"], ["workshop", "ورشة عمل / تدريب", "Workshop / training"], ["hybrid", "هجين (حضوري + أونلاين)", "Hybrid (in person + online)"], ["other", "أخرى", "Other"]],
+    audience: [["vip", "VIP / كبار الشخصيات", "VIPs"], ["business", "عملاء ورجال أعمال", "Clients & business people"], ["staff", "موظفين", "Employees"], ["press", "إعلاميين", "Press & media"], ["public", "جمهور عام", "General public"], ["experts", "متخصصين في القطاع", "Industry specialists"], ["mix", "مزيج", "A mix"]],
+    prevEvent: [["yearly", "أيوه — نسخة سنوية", "Yes — a yearly edition"], ["new", "أيوه — بتغيير كامل", "Yes — with a complete change"], ["first", "لا — أول مرة", "No — first time"]],
+    space: [["hotel", "قاعة فندقية", "Hotel ballroom"], ["center", "مركز مؤتمرات", "Conference center"], ["outdoor", "مساحة مفتوحة / أوت دور", "Outdoor / open space"], ["industrial", "مصنع / مستودع", "Factory / warehouse"], ["studio", "استوديو / مسرح", "Studio / theatre"], ["private", "مكان خاص", "Private venue"], ["tbd", "لسه مش محدد", "Not decided yet"]],
+    equipped: [["full", "أيوه — مجهّز بالكامل", "Yes — fully equipped"], ["partial", "جزئياً — محتاج إضافات", "Partially — needs additions"], ["none", "لا — من الصفر", "No — everything from scratch"], ["unknown", "مش معروف لسه", "Not known yet"]],
+    seating: [["theatre", "مسرحي (صفوف)", "Theatre (rows)"], ["round", "موائد مستديرة", "Round tables"], ["classroom", "فصل (ترابيزات)", "Classroom"], ["cocktail", "كوكتيل — وقوف", "Cocktail — standing"], ["banquet", "بانكيت (عشاء رسمي)", "Banquet (formal dinner)"], ["mix", "مزيج", "A mix"], ["tbd", "غير محدد", "Not decided"]],
+    agenda: [["send", "أيوه — هبعته", "Yes — I will send it"], ["later", "أيوه — هيبقى جاهز بعدين", "Yes — ready later"], ["help", "لا — محتاجين مساعدة فيه", "No — we need help building it"]],
+    ent: [["band", "موسيقى حية / فرقة", "Live music / band"], ["dj", "DJ", "DJ"], ["keynote", "متحدث رئيسي", "Keynote speaker"], ["show", "عرض فني", "Performance"], ["video", "عرض فيلم / فيديو", "Film / video screening"], ["interactive", "أنشطة تفاعلية", "Interactive activities"]]
+  };
+  /* field: k key · t type (text, area, num, date, sel, multi, files, check) · ar/en label · req required (★) · map → project field · pub: client page only · ph placeholders [ar, en] */
+  var CONTACT = { k: "contact", ar: "بياناتك", en: "Your details", pub: true, fields: [
+    { k: "contactName", t: "text", ar: "الاسم", en: "Your name", req: true, max: 120 },
+    { k: "contactPhone", t: "text", ar: "الموبايل / واتساب", en: "Mobile / WhatsApp", req: true, max: 40, dir: "ltr" },
+    { k: "contactEmail", t: "text", ar: "الإيميل", en: "Email", max: 160, dir: "ltr" }
+  ] };
+  var NOTES_COMMON = [
+    { k: "notes", t: "area", ar: "ملاحظات خاصة", en: "Special notes", ph: ["أي معلومة لازم نعرفها ومش مذكورة فوق", "Anything else we should know"], max: 3000 },
+    { k: "priorities", t: "area", ar: "أهم 3 أولويات عندكم", en: "Your top 3 priorities", ph: ["1- … 2- … 3- …", "1- … 2- … 3- …"], max: 1000 },
+    { k: "budgetLevel", t: "sel", ar: "مستوى الميزانية (اختياري)", en: "Budget level (optional)", opts: O.budget },
+    { k: "briefFiles", t: "files", ar: "ملف البريف بتاعكم (PDF / Word / صور)", en: "Your own brief file (PDF / Word / images)" },
+    { k: "extraFiles", t: "files", ar: "ملفات إضافية", en: "Additional files" }
+  ];
+  var DELIV_TAIL = function (opts) { return [
+    { k: "deliv", t: "multi", ar: "المطلوب مننا", en: "What you need from us", req: true, opts: opts, map: "deliverables" },
+    { k: "options", t: "num", ar: "عدد الأوبشنز (تصميمات مختلفة)", en: "Number of design options", req: true, map: "options", min: 1, max: 20, def: 1 },
+    { k: "angles", t: "num", ar: "عدد زوايا الريندر", en: "Number of render angles", min: 0, max: 50 },
+    { k: "dayNight", t: "sel", ar: "ريندر نهاري / ليلي", en: "Day / night render", opts: O.dayNight },
+    { k: "revisions", t: "sel", ar: "جولات التعديل المتفق عليها", en: "Agreed revision rounds", opts: O.revisions },
+    { k: "deadline", t: "date", ar: "موعد تسليم التصميم", en: "Design delivery date", req: true, map: "deadline" },
+    { k: "presentDate", t: "date", ar: "موعد عرض التصميم على العميل النهائي", en: "Presentation date to the end client" },
+    { k: "buildDate", t: "date", ar: "موعد بدء التركيب", en: "Build / installation start" }
+  ]; };
+  var BRAND = function (colorsEn) { return [
+    { k: "colors", t: "text", ar: "ألوان الهوية", en: colorsEn || "Brand colours", req: true, ph: ["أزرق #003399 + أبيض", "Blue #003399 + white"], max: 200 },
+    { k: "accent", t: "text", ar: "لون تمييز إضافي", en: "Accent colour", ph: ["ذهبي فاتح / رمادي فحمي", "Light gold / charcoal"], max: 120 },
+    { k: "style", t: "multi", ar: "الأسلوب التصميمي المطلوب", en: "Design style", req: true, opts: O.style },
+    { k: "mood", t: "area", ar: "الجو والإحساس المطلوب", en: "Mood & feeling", ph: ["رقي وثقة، إضاءة دافئة، عرض المنتجات بشكل احترافي…", "Refined and confident, warm lighting, professional product display…"], max: 2000 },
+    { k: "refs", t: "area", ar: "مراجع أعجبتكم (روابط أو وصف)", en: "References you like (links or description)", max: 2000 },
+    { k: "refFiles", t: "files", ar: "صور مراجع", en: "Reference images" },
+    { k: "avoid", t: "area", ar: "إيه اللي نتجنبه؟", en: "What should we avoid?", ph: ["لون معين / مش عايزين ديكورات زيتية / …", "A colour, a style, anything you dislike"], max: 1000 },
+    { k: "brandFiles", t: "files", ar: "ملفات الهوية واللوجو (AI / PDF / PNG)", en: "Brand & logo files (AI / PDF / PNG)" }
+  ]; };
+  var T = {
+    booth: { kind: "stand", ar: "بوث / جناح معرض", en: "Exhibition booth / stand", icon: "🏗️", sections: [
+      { k: "project", ar: "المشروع", en: "Project", fields: [
+        { k: "name", t: "text", ar: "اسم المشروع / البوث", en: "Project / booth name", req: true, map: "name", ph: ["بوث فود أفريكا 2026", "Food Africa 2026 booth"], max: 200 },
+        { k: "endClient", t: "text", ar: "العارض (العلامة اللي البوث ليها)", en: "Exhibitor (the brand the booth is for)", req: true, map: "endClient", max: 160 },
+        { k: "show", t: "text", ar: "اسم المعرض", en: "Exhibition name", req: true, map: "event", ph: ["LEAP / Cityscape / GITEX", "LEAP / Cityscape / GITEX"], max: 160 },
+        { k: "showDates", t: "text", ar: "تاريخ المعرض", en: "Exhibition dates", req: true, ph: ["3–6 ديسمبر 2026", "3–6 December 2026"], max: 80 },
+        { k: "city", t: "text", ar: "المدينة / الدولة", en: "City / country", map: "city", max: 80 },
+        { k: "venue", t: "text", ar: "مكان الانعقاد / القاعة", en: "Venue / hall", max: 160 },
+        { k: "boothNo", t: "text", ar: "رقم البوث", en: "Booth number", max: 40, dir: "ltr" },
+        { k: "prev", t: "sel", ar: "شاركتوا في المعرض ده قبل كده؟", en: "Exhibited at this show before?", opts: O.prev }
+      ] },
+      { k: "space", ar: "المساحة", en: "Space", fields: [
+        { k: "area", t: "num", ar: "المساحة (م²)", en: "Area (m²)", req: true, map: "area", min: 1, max: 10000, step: "any" },
+        { k: "dims", t: "text", ar: "المقاسات (عرض × عمق)", en: "Dimensions (W × D)", map: "dims", ph: ["12 × 9 م", "12 × 9 m"], max: 60, dir: "ltr" },
+        { k: "ceiling", t: "num", ar: "أقصى ارتفاع مسموح (م)", en: "Maximum height allowed (m)", min: 1, max: 30, step: "any" },
+        { k: "boothType", t: "sel", ar: "نوع البوث", en: "Booth type", req: true, opts: O.boothType },
+        { k: "openSides", t: "text", ar: "الجهات المفتوحة", en: "Open sides", ph: ["الواجهة الرئيسية من الشمال", "Main front facing north"], max: 160 },
+        { k: "floorPlan", t: "sel", ar: "فيه مخطط للقاعة؟", en: "Is there a floor plan?", opts: O.floorPlan },
+        { k: "siteLimits", t: "area", ar: "قيود الموقع", en: "Site restrictions", ph: ["عمود في النص / ممنوع التعليق / ارتفاع 4 م…", "A column in the middle / no rigging / 4 m height limit…"], max: 1000 },
+        { k: "planFiles", t: "files", ar: "مخطط القاعة / مقاسات الأرض", en: "Floor plan / space drawing" }
+      ] },
+      { k: "business", ar: "النشاط والمنتجات", en: "Business & products", fields: [
+        { k: "business", t: "text", ar: "طبيعة نشاط العارض", en: "Exhibitor's business", req: true, ph: ["أغذية ومشروبات — تصدير", "Food & beverage — export"], max: 200 },
+        { k: "products", t: "area", ar: "المنتجات أو الخدمات اللي هتتعرض", en: "Products or services on show", req: true, max: 2000 },
+        { k: "hero", t: "text", ar: "منتج رئيسي أو إطلاق جديد؟", en: "Hero product or new launch?", max: 300 },
+        { k: "goals", t: "multi", ar: "هدف المشاركة", en: "Goal of participating", opts: O.goalsBooth }
+      ] },
+      { k: "brand", ar: "الهوية والستايل", en: "Brand & style", fields: BRAND("Brand colours") },
+      { k: "elements", ar: "العناصر والتوزيع", en: "Elements & layout", fields: [
+        { k: "elements", t: "multi", ar: "العناصر المطلوبة جوه البوث", en: "Elements required inside the booth", req: true, opts: O.elemsBooth },
+        { k: "staff", t: "num", ar: "عدد الموظفين جوه البوث", en: "Staff inside the booth", min: 0, max: 500 },
+        { k: "seats", t: "num", ar: "عدد مقاعد الاجتماعات", en: "Meeting seats", min: 0, max: 500 },
+        { k: "elemNotes", t: "area", ar: "ملاحظات على العناصر", en: "Notes on the elements", max: 2000 },
+        { k: "layoutPrefs", t: "area", ar: "تفضيلات التوزيع الداخلي", en: "Internal layout preferences", ph: ["الاستقبال في الواجهة / الاجتماعات في الخلف…", "Reception at the front / meetings at the back…"], max: 2000 },
+        { k: "entrance", t: "sel", ar: "مدخل البوث الرئيسي", en: "Main entrance", opts: O.entrance },
+        { k: "display", t: "multi", ar: "طريقة عرض المنتجات", en: "Product display method", opts: O.display }
+      ] },
+      { k: "deliv", ar: "المطلوب والمواعيد", en: "Deliverables & dates", fields: DELIV_TAIL(O.delivBooth) },
+      { k: "notes", ar: "ملاحظات", en: "Notes", fields: [
+        { k: "competitors", t: "text", ar: "منافسين في نفس المعرض؟", en: "Competitors at the same show?", max: 300 },
+        { k: "media", t: "sel", ar: "تصوير أو تغطية إعلامية؟", en: "Photography or media coverage?", opts: O.media }
+      ].concat(NOTES_COMMON) },
+      CONTACT
+    ] },
+    event: { kind: "eventA", ar: "إيفنت / فعالية", en: "Event", icon: "🎤", sections: [
+      { k: "project", ar: "الفعالية", en: "Event", fields: [
+        { k: "name", t: "text", ar: "اسم الفعالية / المشروع", en: "Event / project name", req: true, map: "name", ph: ["حفل توزيع جوائز 2026", "Awards ceremony 2026"], max: 200 },
+        { k: "endClient", t: "text", ar: "الجهة المنظِّمة (العميل النهائي)", en: "Organiser (end client)", req: true, map: "endClient", max: 160 },
+        { k: "eventType", t: "sel", ar: "نوع الفعالية", en: "Event type", req: true, opts: O.eventType },
+        { k: "eventDate", t: "text", ar: "تاريخ الفعالية", en: "Event date(s)", req: true, ph: ["15 نوفمبر 2026 / يومين 20–21 ديسمبر", "15 November 2026 / two days 20–21 December"], max: 80 },
+        { k: "city", t: "text", ar: "المدينة / الدولة", en: "City / country", map: "city", max: 80 },
+        { k: "venue", t: "text", ar: "مكان الانعقاد / الفينيو", en: "Venue", map: "event", max: 160 },
+        { k: "duration", t: "text", ar: "مدة الفعالية", en: "Duration", ph: ["4 ساعات / يوم كامل / 3 أيام", "4 hours / full day / 3 days"], max: 80 },
+        { k: "attendance", t: "text", ar: "عدد الحضور المتوقع", en: "Expected attendance", req: true, ph: ["200 / 500–700", "200 / 500–700"], max: 60 },
+        { k: "audience", t: "sel", ar: "طبيعة الضيوف", en: "Audience", opts: O.audience },
+        { k: "prev", t: "sel", ar: "الفعالية اتعملت قبل كده؟", en: "Has this event been held before?", opts: O.prevEvent }
+      ] },
+      { k: "space", ar: "المكان والمساحة", en: "Venue & space", fields: [
+        { k: "hallDims", t: "text", ar: "أبعاد القاعة (طول × عرض × ارتفاع)", en: "Hall dimensions (L × W × H)", map: "dims", ph: ["30 × 20 × 6 م", "30 × 20 × 6 m"], max: 60, dir: "ltr" },
+        { k: "spaceType", t: "sel", ar: "نوع المساحة", en: "Type of space", opts: O.space },
+        { k: "equipped", t: "sel", ar: "المكان مجهّز صوت وإضاءة؟", en: "Is the venue equipped (sound & light)?", opts: O.equipped },
+        { k: "hall", t: "check", ar: "محتاجين رسم توزيع القاعة (hall layout)", en: "We need a hall layout drawing", map: "hall" },
+        { k: "siteLimits", t: "area", ar: "قيود أو ملاحظات على المكان", en: "Venue restrictions or notes", ph: ["ممنوع التعليق في السقف / ارتفاع أقصى 4 م…", "No ceiling rigging / 4 m height limit…"], max: 1000 },
+        { k: "planFiles", t: "files", ar: "مخطط القاعة", en: "Hall floor plan" }
+      ] },
+      { k: "goal", ar: "الهدف والرسالة", en: "Goal & message", fields: [
+        { k: "goals", t: "multi", ar: "الهدف الرئيسي", en: "Main goal", req: true, opts: O.goalsEvent },
+        { k: "message", t: "area", ar: "الرسالة الأساسية أو الثيم", en: "Key message or theme", req: true, ph: ["الاحتفال بـ 25 سنة نجاح مع التركيز على المستقبل…", "Celebrating 25 years with a focus on the future…"], max: 2000 },
+        { k: "impression", t: "area", ar: "الانطباع المطلوب يوصل للضيوف", en: "Impression the guests should leave with", max: 1000 }
+      ] },
+      { k: "brand", ar: "الهوية والستايل", en: "Brand & style", fields: [{ k: "eventColor", t: "text", ar: "لون خاص بالفعالية (لو فيه)", en: "Event colour (if any)", max: 120 }].concat(BRAND("Organiser's brand colours")) },
+      { k: "elements", ar: "العناصر والبرنامج", en: "Elements & programme", fields: [
+        { k: "elements", t: "multi", ar: "العناصر المطلوبة", en: "Elements required", req: true, opts: O.elemsEvent },
+        { k: "elementsCount", t: "num", ar: "عدد العناصر / المناطق المطلوب تصميمها", en: "Number of elements / zones to design", req: true, map: "elements", min: 1, max: 500 },
+        { k: "stageDetails", t: "area", ar: "تفاصيل المنصة (لو فيه)", en: "Stage details (if any)", ph: ["ارتفاع 80 سم / 8 × 4 م / شاشة LED 4 × 2 م خلفها…", "80 cm high / 8 × 4 m / 4 × 2 m LED behind it…"], max: 1500 },
+        { k: "stageGuests", t: "num", ar: "عدد الضيوف على المنصة", en: "Guests on stage", min: 0, max: 200 },
+        { k: "seating", t: "sel", ar: "ترتيب الجلوس", en: "Seating arrangement", opts: O.seating },
+        { k: "elemNotes", t: "area", ar: "ملاحظات على العناصر", en: "Notes on the elements", max: 2000 },
+        { k: "agenda", t: "sel", ar: "فيه برنامج تفصيلي؟", en: "Is there a detailed programme?", opts: O.agenda },
+        { k: "flow", t: "area", ar: "التسلسل العام للفعالية", en: "Event flow", ph: ["3:00 تسجيل وكوكتيل → 4:00 كلمات → 6:00 جوائز → 7:30 عشاء", "3:00 registration & cocktail → 4:00 speeches → 6:00 awards → 7:30 dinner"], max: 2000 },
+        { k: "ent", t: "multi", ar: "عروض أو برامج ترفيهية", en: "Entertainment", opts: O.ent }
+      ] },
+      { k: "deliv", ar: "المطلوب والمواعيد", en: "Deliverables & dates", fields: DELIV_TAIL(O.delivEvent) },
+      { k: "notes", ar: "ملاحظات", en: "Notes", fields: [
+        { k: "media", t: "sel", ar: "تغطية إعلامية؟", en: "Media coverage?", opts: O.media },
+        { k: "sponsors", t: "area", ar: "رعاة لازم يظهروا في التصميم؟", en: "Sponsors that must appear in the design?", max: 1000 }
+      ].concat(NOTES_COMMON) },
+      CONTACT
+    ] },
+    graphic: { kind: "graphic", ar: "تصميم جرافيك / مطبوعات", en: "Graphic design / print", icon: "🎨", sections: [
+      { k: "project", ar: "المشروع", en: "Project", fields: [
+        { k: "name", t: "text", ar: "اسم المشروع", en: "Project name", req: true, map: "name", max: 200 },
+        { k: "endClient", t: "text", ar: "العلامة / العميل النهائي", en: "Brand / end client", map: "endClient", max: 160 },
+        { k: "items", t: "area", ar: "العناصر المطلوبة (رول أب، بانر، بوستر…)", en: "Items required (roll-up, banner, poster…)", req: true, map: "gfxTypes", max: 300 },
+        { k: "count", t: "num", ar: "عدد العناصر", en: "Number of items", req: true, map: "elements", min: 1, max: 500 },
+        { k: "sizes", t: "text", ar: "المقاسات", en: "Sizes", map: "gfxSizes", ph: ["85 × 200 سم، 3 × 2 م", "85 × 200 cm, 3 × 2 m"], max: 300, dir: "ltr" },
+        { k: "content", t: "area", ar: "المحتوى والنصوص", en: "Content & copy", max: 3000 }
+      ] },
+      { k: "brand", ar: "الهوية والستايل", en: "Brand & style", fields: BRAND("Brand colours") },
+      { k: "deliv", ar: "المطلوب والمواعيد", en: "Deliverables & dates", fields: [
+        { k: "deliv", t: "multi", ar: "المطلوب مننا", en: "What you need from us", req: true, opts: O.delivGfx, map: "deliverables" },
+        { k: "options", t: "num", ar: "عدد الأوبشنز", en: "Number of design options", req: true, map: "options", min: 1, max: 20, def: 1 },
+        { k: "deadline", t: "date", ar: "موعد التسليم", en: "Delivery date", req: true, map: "deadline" }
+      ] },
+      { k: "notes", ar: "ملاحظات", en: "Notes", fields: NOTES_COMMON },
+      CONTACT
+    ] }
+  };
+  var TPL_KEYS = ["booth", "event", "graphic"];
+  var CRM_DELIV = ["renders", "anim", "shop", "psd", "pres"]; // the ones pricing.js knows
+  function tpl(k) { return T[k] || null; }
+  function sections(k, pub) { var t = tpl(k); if (!t) return []; return t.sections.filter(function (s) { return pub ? true : !s.pub; }); }
+  function fields(k, pub) { var out = []; sections(k, pub).forEach(function (s) { s.fields.forEach(function (f) { out.push(f); }); }); return out; }
+  function L(x, lang) { return lang === "en" ? (x.en || x.ar) : x.ar; }
+  function optLabel(f, v, lang) { var o = (f.opts || []).filter(function (x) { return x[0] === v; })[0]; return o ? (lang === "en" ? o[2] : o[1]) : v; }
+  function isEmpty(f, v) {
+    if (f.t === "multi") return !Array.isArray(v) || !v.length;
+    if (f.t === "files") return true; // files never count as answers
+    if (f.t === "check") return false;
+    if (f.t === "num") return !(Number(v) > 0 || (f.min === 0 && v !== "" && v != null && !isNaN(Number(v))));
+    return v == null || String(v).trim() === "";
+  }
+  /* sanitize a client/office answer set — unknown keys dropped, strings capped, options checked, numbers bounded */
+  function clean(k, a) {
+    var out = {}; a = a && typeof a === "object" ? a : {};
+    fields(k, true).forEach(function (f) {
+      var v = a[f.k]; if (v == null) return;
+      if (f.t === "text" || f.t === "area") { v = String(v).replace(/\r/g, "").trim().slice(0, f.max || 2000); if (v) out[f.k] = v; }
+      else if (f.t === "num") { v = Number(v); if (!isFinite(v)) return; if (f.min != null && v < f.min) v = f.min; if (f.max != null && v > f.max) v = f.max; out[f.k] = f.step === "any" ? Math.round(v * 100) / 100 : Math.round(v); }
+      else if (f.t === "date") { v = String(v).trim(); if (/^\d{4}-\d{2}-\d{2}$/.test(v)) out[f.k] = v; }
+      else if (f.t === "sel") { v = String(v); if (f.opts.some(function (o) { return o[0] === v; })) out[f.k] = v; }
+      else if (f.t === "multi") { var arr = Array.isArray(v) ? v : String(v).split(","); var vals = []; arr.forEach(function (x) { x = String(x).trim(); if (f.opts.some(function (o) { return o[0] === x; }) && vals.indexOf(x) < 0) vals.push(x); }); if (vals.length) out[f.k] = vals; }
+      else if (f.t === "check") { out[f.k] = !!v && v !== "false" && v !== "0"; }
+      else if (f.t === "files") { var ids = Array.isArray(v) ? v : []; out[f.k] = ids.map(function (x) { return String(x && x.id ? x.id : x); }).filter(function (x) { return /^[A-Za-z0-9_-]{6,64}$/.test(x); }).slice(0, 20); }
+    });
+    return out;
+  }
+  /* the ★ questions still unanswered → labels (for the message) and keys (for the form) */
+  function missing(k, a, lang, pub) { var out = []; a = a || {}; fields(k, pub).forEach(function (f) { if (f.req && isEmpty(f, a[f.k])) out.push({ k: f.k, label: L(f, lang) }); }); return out; }
+  function missingLabels(k, a, lang, pub) { return missing(k, a, lang, pub).map(function (m) { return m.label; }); }
+  /* answers → the project fields the CRM prices from (pricing.js) + a readable description */
+  function toProject(k, a, lang) {
+    var t = tpl(k); if (!t) return {}; a = a || {}; var p = { kind: t.kind, deliverables: {} };
+    fields(k, true).forEach(function (f) {
+      if (!f.map) return; var v = a[f.k]; if (v == null || v === "") return;
+      if (f.map === "deliverables") { (v || []).forEach(function (d) { if (CRM_DELIV.indexOf(d) >= 0) p.deliverables[d] = true; }); return; }
+      p[f.map] = v;
+    });
+    if (!Object.keys(p.deliverables).length && k !== "graphic") p.deliverables = { renders: true };
+    if (k === "graphic") delete p.deliverables;
+    p.desc = toText(k, a, lang || "ar", { compact: true }).slice(0, 3000);
+    return p;
+  }
+  function fmtVal(f, v, lang) {
+    if (v == null || v === "") return "";
+    if (f.t === "sel") return optLabel(f, v, lang);
+    if (f.t === "multi") return (v || []).map(function (x) { return optLabel(f, x, lang); }).join(lang === "en" ? ", " : "، ");
+    if (f.t === "check") return v ? (lang === "en" ? "yes" : "أيوه") : "";
+    if (f.t === "files") return "";
+    return String(v);
+  }
+  /* plain-text version (clipboard / WhatsApp / the project description) */
+  function toText(k, a, lang, opt) {
+    var t = tpl(k); if (!t) return ""; a = a || {}; opt = opt || {}; lang = lang || "ar"; var lines = [];
+    if (!opt.compact) { lines.push("RG-Designs — " + (lang === "en" ? "Design brief" : "بريف التصميم") + " — " + L(t, lang)); lines.push(""); }
+    sections(k, !!opt.pub).forEach(function (s) {
+      var rows = [];
+      s.fields.forEach(function (f) { var v = fmtVal(f, a[f.k], lang); if (v) rows.push((opt.compact ? "" : "• ") + L(f, lang) + ": " + v); });
+      if (!rows.length) return;
+      lines.push((opt.compact ? "[" + L(s, lang) + "] " : "— " + L(s, lang) + " —"));
+      if (opt.compact) lines[lines.length - 1] += rows.join(" | "); else { rows.forEach(function (r) { lines.push(r); }); lines.push(""); }
+    });
+    return lines.join("\n").trim();
+  }
+  function progress(k, a, pub) { var all = fields(k, pub).filter(function (f) { return f.t !== "files"; }), n = 0; all.forEach(function (f) { if (!isEmpty(f, (a || {})[f.k])) n++; }); return all.length ? Math.round(100 * n / all.length) : 0; }
+  return { VERSION: VERSION, T: T, O: O, TPL_KEYS: TPL_KEYS, CRM_DELIV: CRM_DELIV, tpl: tpl, sections: sections, fields: fields, L: L, optLabel: optLabel, isEmpty: isEmpty, clean: clean, missing: missing, missingLabels: missingLabels, toProject: toProject, toText: toText, fmtVal: fmtVal, progress: progress };
+});
+</script>
+<header class="hdr">
+  <div class="top">
+    <a class="logo" href="https://rg-designs.net" target="_blank" rel="noopener">
+      <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="direction:ltr"><rect width="36" height="36" fill="#020101"/><text x="18" y="26" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="19" font-weight="900" fill="#C9A84C" style="direction:ltr">RG</text></svg>
+      <span><b>RG-Designs</b><small>Exhibition · Event · 3D</small></span>
+    </a>
+    <button class="lang" id="langBtn" type="button">English</button>
+  </div>
+  <div class="hin">
+    <div><div class="lbl" id="hLbl">بريف التصميم</div><h1 id="hTitle">…</h1><p class="sub" id="hSub"></p></div>
+    <span class="badge" id="hBadge">RG</span>
+  </div>
+</header>
+<main id="app"></main>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+"use strict";
+var D=window.RGBriefDef,C=window.RGB||{};
+var token=C.token||(new URLSearchParams(location.search).get("k"))||(location.hash.match(/k=([A-Za-z0-9_-]+)/)||[])[1]||"";
+var API=C.api?C.api.replace(/\/+$/,"")+"/"+token+"/api":(location.pathname.replace(/\/+$/,"")+"/api");
+var lang=(localStorage.getItem("rgb_lang_"+token)||new URLSearchParams(location.search).get("lang")||C.lang||"ar")==="en"?"en":"ar";
+var S={info:null,view:"home",tpl:null,answers:{},files:{},submitted:null};
+var el=function(tag,attrs){var e=document.createElement(tag);if(attrs)for(var k in attrs){if(k==="class")e.className=attrs[k];else if(k==="text")e.textContent=attrs[k];else if(k.indexOf("on")===0)e[k]=attrs[k];else if(attrs[k]!=null&&attrs[k]!==false)e.setAttribute(k,attrs[k]);}for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null||c===false)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null&&x!==false)e.appendChild(typeof x==="string"?document.createTextNode(x):x);});else e.appendChild(typeof c==="string"?document.createTextNode(c):c);}return e;};
+var T={ar:{brief:"بريف التصميم",hello:"أهلاً بيكم",sub:"املوا البريف وإحنا هنبدأ التصميم — الحقول اللي عليها ★ مطلوبة",newBrief:"➕ بريف لمشروع جديد",sent:"البريفات اللي بعتوها",none:"لسه مفيش بريفات — ابدأ بأول مشروع",choose:"نوع المشروع",received:"وصل ✓ — تحت المراجعة",design:"جاري التصميم",delivered:"اتسلّم",rejected:"اتقفل",closed:"اتقفل",send:"✉️ ابعت البريف",sending:"جارٍ الإرسال…",back:"رجوع",another:"➕ بريف لمشروع تاني",home:"القايمة",thanks:"وصلنا ✓",thanksTxt:"شكراً! فريق RG-Designs هيراجع البريف ويتواصل معاكم.",no:"رقم البريف",missing:"في حقول مطلوبة ناقصة",missingN:"كمّلوا الحقول المعلّمة",pick:"اضغط لاختيار الملفات أو اسحبها هنا",files:"ملفات",uploading:"جارٍ الرفع…",upErr:"الرفع فشل — جرّب تاني",fileBig:"الملف أكبر من 60 ميجا",progress:"نسبة اكتمال البريف",required:"مطلوب",draft:"محفوظ تلقائياً على جهازك",clear:"مسح والبدء من جديد",sure:"تمسح كل اللي اتكتب؟",err:"حصلت مشكلة — جرّب تاني",gone:"اللينك ده مش شغال — كلّم RG-Designs",offline:"مفيش اتصال بالسيرفر دلوقتي",yes:"أيوه",view:"عرض",hidden:"الحقل ده اختياري",contactNote:"عشان نقدر نرجعلكم لو احتجنا توضيح"},
+en:{brief:"Design brief",hello:"Welcome",sub:"Fill in the brief and we start designing — fields marked ★ are required",newBrief:"➕ Brief for a new project",sent:"Briefs you have sent",none:"No briefs yet — start with your first project",choose:"Project type",received:"Received ✓ — under review",design:"In design",delivered:"Delivered",rejected:"Closed",closed:"Closed",send:"✉️ Send the brief",sending:"Sending…",back:"Back",another:"➕ Brief for another project",home:"My briefs",thanks:"Received ✓",thanksTxt:"Thank you! The RG-Designs team will review the brief and get back to you.",no:"Brief number",missing:"Some required fields are missing",missingN:"Please complete the highlighted fields",pick:"Click to choose files or drop them here",files:"files",uploading:"Uploading…",upErr:"Upload failed — please try again",fileBig:"File larger than 60 MB",progress:"Brief completion",required:"required",draft:"Saved automatically on this device",clear:"Clear and start over",sure:"Clear everything you typed?",err:"Something went wrong — please try again",gone:"This link is no longer active — please contact RG-Designs",offline:"Cannot reach the server right now",yes:"yes",view:"view",hidden:"optional",contactNote:"So we can reach you if anything needs clarifying"}};
+var t=function(k){return (T[lang]||T.ar)[k]||k;};
+function toast(m,bad){var x=document.getElementById("toast");x.textContent=m;x.className="toast show"+(bad?" bad":"");clearTimeout(toast._t);toast._t=setTimeout(function(){x.className="toast"+(bad?" bad":"");},3200);}
+function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang==="en"?"ltr":"rtl";document.getElementById("langBtn").textContent=lang==="en"?"العربية":"English";document.getElementById("hLbl").textContent=t("brief");try{localStorage.setItem("rgb_lang_"+token,lang);}catch(e){}}
+document.getElementById("langBtn").onclick=function(){lang=lang==="en"?"ar":"en";applyLang();render();};
+function api(method,path,body,raw){var h={"x-rgb":"1"};if(!raw)h["content-type"]="application/json";return fetch(API+path,{method:method,headers:h,body:body?(raw?body:JSON.stringify(body)):undefined}).then(function(r){return r.json().then(function(j){j.__status=r.status;return j;}).catch(function(){return {__status:r.status,ok:false};});});}
+function fmtSize(n){return n<1048576?Math.max(1,Math.round(n/1024))+" KB":(n/1048576).toFixed(1)+" MB";}
+function dkey(){return "rgb_draft_"+token+"_"+S.tpl;}
+function saveDraft(){try{localStorage.setItem(dkey(),JSON.stringify({a:S.answers,f:S.files}));}catch(e){}}
+function loadDraft(){try{var d=JSON.parse(localStorage.getItem(dkey())||"null");if(d&&d.a){S.answers=d.a;S.files=d.f||{};}}catch(e){}}
+function clearDraft(){try{localStorage.removeItem(dkey());}catch(e){}}
+function statusPill(b){var cls=b.status==="received"?"gold":b.status==="design"?"":b.status==="delivered"?"ok":"";return el("span",{class:"pill "+cls},t(b.status)||b.status);}
+function header(title,sub,badge){document.getElementById("hTitle").textContent=title;document.getElementById("hSub").textContent=sub||"";document.getElementById("hBadge").textContent=badge||"RG";}
+/* ---------- home ---------- */
+function renderHome(){var app=document.getElementById("app");var info=S.info;header(info.company,t("sub"),t("brief"));
+  var cards=el("div",{class:"tpls"},D.TPL_KEYS.map(function(k){var tp=D.tpl(k);return el("div",{class:"tpl",role:"button",tabindex:"0",onclick:function(){startForm(k);},onkeydown:function(e){if(e.key==="Enter")startForm(k);}},el("div",{class:"ic"},tp.icon),el("b",null,D.L(tp,lang)),el("small",null,D.fields(k,true).filter(function(f){return f.req;}).length+" ★"));}));
+  var list=el("div",{class:"card list"},info.briefs.length?info.briefs.map(function(b){return el("div",{class:"it"},el("div",null,el("b",null,b.title||"—"),el("div",{class:"muted sm"},D.L(D.tpl(b.tpl)||{ar:b.tpl},lang)," · ",b.at.slice(0,10)," · #",b.no,b.files?" · "+b.files+" "+t("files"):"")),statusPill(b));}):el("div",{class:"it muted"},t("none")));
+  app.replaceChildren(el("div",{class:"card"},el("div",{class:"ch"},el("span",{class:"n"},"＋"),el("span",{class:"t"},t("newBrief").replace(/^➕\s*/,"")," — ",t("choose"))),el("div",{class:"cb"},cards)),el("h3",{class:"muted sm",style:"margin:4px 0 8px"},t("sent")),list,el("p",{class:"foot"},el("b",null,"RG-Designs")," — Exhibition Stand, Booth & Event Design Studio · rg-designs.net"));
+  window.scrollTo(0,0);}
+/* ---------- form ---------- */
+function startForm(k){S.tpl=k;S.answers={};S.files={};loadDraft();S.view="form";var def=D.fields(k,true);def.forEach(function(f){if(f.def!=null&&S.answers[f.k]==null)S.answers[f.k]=f.def;});render();}
+var fieldNodes={};
+function renderForm(){var app=document.getElementById("app");var k=S.tpl,tp=D.tpl(k);fieldNodes={};header(S.info.company,D.L(tp,lang),D.L(tp,lang));
+  var prog=el("div",{class:"prog"},el("div",{class:"pb"},el("i",{id:"pbar"})),el("div",{class:"pt"},el("span",{id:"ptxt"},t("progress")+": 0%"),el("span",{class:"muted"},t("draft"))));
+  var secs=D.sections(k,true);var nav=el("div",{class:"secnav"},secs.map(function(s,i){return el("a",{href:"#s-"+s.k},(i+1)+". "+D.L(s,lang));}));
+  var cards=secs.map(function(s,i){var body=[];var pend=null;
+    s.fields.forEach(function(f){var node=fieldNode(f);fieldNodes[f.k]=node;var full=f.t==="area"||f.t==="multi"||f.t==="files"||f.t==="check";
+      if(full){if(pend){body.push(pend);pend=null;}body.push(node);node.classList.add("full");}
+      else{if(!pend){pend=el("div",{class:"row"});}pend.appendChild(node);if(pend.children.length===2){body.push(pend);pend=null;}}});
+    if(pend)body.push(pend);
+    return el("div",{class:"card",id:"s-"+s.k},el("div",{class:"ch"},el("span",{class:"n"},(i+1<10?"0":"")+(i+1)),el("span",{class:"t"},D.L(s,lang),s.k==="contact"?el("span",{class:"muted sm"}," — "+t("contactNote")):null)),el("div",{class:"cb"},body));});
+  var sendBtn=el("button",{class:"btn",type:"button",onclick:submit},t("send"));
+  app.replaceChildren(prog,nav,el("form",{id:"bf",onsubmit:function(e){e.preventDefault();submit();}},cards,el("div",{class:"acts"},sendBtn,el("button",{class:"btn ghost",type:"button",onclick:function(){S.view="home";render();}},t("back")),el("button",{class:"btn ghost",type:"button",onclick:function(){if(confirm(t("sure"))){clearDraft();S.answers={};S.files={};render();}}},t("clear")),el("p",{class:"foot"},el("b",null,"RG-Designs")," · rg-designs.net"))));
+  updateProg();window.scrollTo(0,0);}
+function setA(k,v){if(v===""||v==null||(Array.isArray(v)&&!v.length))delete S.answers[k];else S.answers[k]=v;saveDraft();updateProg();var n=fieldNodes[k];if(n)n.classList.remove("bad");}
+function updateProg(){var p=D.progress(S.tpl,S.answers,true);var b=document.getElementById("pbar"),x=document.getElementById("ptxt");if(b)b.style.width=p+"%";if(x)x.textContent=t("progress")+": "+p+"%";}
+function fieldNode(f){var v=S.answers[f.k];var lab=el("label",{class:"l"},f.req?el("span",{class:"star"},"★"):null,D.L(f,lang));var ctl;
+  var ph=f.ph?(lang==="en"?f.ph[1]:f.ph[0]):"";
+  if(f.t==="text")ctl=el("input",{type:f.k==="contactEmail"?"email":"text",value:v||"",placeholder:ph,maxlength:String(f.max||200),dir:f.dir||null,oninput:function(){setA(f.k,this.value);}});
+  else if(f.t==="area")ctl=el("textarea",{placeholder:ph,maxlength:String(f.max||2000),oninput:function(){setA(f.k,this.value);}},v||"");
+  else if(f.t==="num")ctl=el("input",{type:"number",value:v==null?"":v,min:f.min!=null?String(f.min):null,max:f.max!=null?String(f.max):null,step:f.step||"1",dir:"ltr",inputmode:"decimal",oninput:function(){setA(f.k,this.value===""?"":Number(this.value));}});
+  else if(f.t==="date")ctl=el("input",{type:"date",value:v||"",dir:"ltr",onchange:function(){setA(f.k,this.value);}});
+  else if(f.t==="sel"){ctl=el("select",{onchange:function(){setA(f.k,this.value);}},el("option",{value:""},lang==="en"?"— choose —":"— اختر —"),f.opts.map(function(o){return el("option",{value:o[0]},lang==="en"?o[2]:o[1]);}));ctl.value=v||"";}
+  else if(f.t==="multi"){var cur=Array.isArray(v)?v.slice():[];ctl=el("div",{class:"grid"},f.opts.map(function(o){var cb=el("input",{type:"checkbox",value:o[0]});cb.checked=cur.indexOf(o[0])>=0;var lb=el("label",{class:"ck"+(cb.checked?" on":"")},cb,el("span",null,lang==="en"?o[2]:o[1]));cb.onchange=function(){var arr=Array.isArray(S.answers[f.k])?S.answers[f.k].slice():[];if(cb.checked){if(arr.indexOf(o[0])<0)arr.push(o[0]);}else arr=arr.filter(function(x){return x!==o[0];});lb.classList.toggle("on",cb.checked);setA(f.k,arr);};return lb;}));}
+  else if(f.t==="check"){var c2=el("input",{type:"checkbox"});c2.checked=!!v;var lb2=el("label",{class:"ck"+(v?" on":"")},c2,el("span",null,D.L(f,lang)));c2.onchange=function(){lb2.classList.toggle("on",c2.checked);setA(f.k,c2.checked);};return el("div",{class:"f"},lb2);}
+  else if(f.t==="files"){return filesNode(f,lab);}
+  return el("div",{class:"f"},lab,ctl,el("div",{class:"err"},t("required")));}
+function filesNode(f,lab){var list=el("div",{class:"fl"});var box=el("div",{class:"f"},lab,el("div",{class:"up"},el("input",{type:"file",multiple:"multiple",onchange:function(){var fl=Array.prototype.slice.call(this.files);this.value="";fl.forEach(function(x){upload(f.k,x,list);});}}),el("span",{class:"ic"},"📎"),el("span",null,t("pick"))),list);
+  (S.files[f.k]||[]).forEach(function(x){list.appendChild(fileItem(f.k,x,list));});return box;}
+function fileItem(k,x,list){var it=el("div",{class:"fi"},el("span",{class:"nm",title:x.name},x.name),el("span",{class:"sz"},fmtSize(x.size)),el("button",{class:"x",type:"button",title:"✕",onclick:function(){S.files[k]=(S.files[k]||[]).filter(function(y){return y.id!==x.id;});saveDraft();it.remove();}},"✕"));return it;}
+function upload(k,file,list){if(file.size>60*1048576){toast(t("fileBig"),true);return;}var bar=el("div",{class:"bar"});var it=el("div",{class:"fi uploading"},el("span",{class:"nm"},file.name),el("span",{class:"sz"},t("uploading")),bar);list.appendChild(it);
+  var x=new XMLHttpRequest();x.open("POST",API+"/file");x.setRequestHeader("x-rgb","1");x.setRequestHeader("x-file-name",encodeURIComponent(file.name));x.setRequestHeader("content-type",file.type||"application/octet-stream");
+  x.upload.onprogress=function(e){if(e.lengthComputable)bar.style.width=Math.round(100*e.loaded/e.total)+"%";};
+  x.onload=function(){var j=null;try{j=JSON.parse(x.responseText);}catch(e){}if(x.status===200&&j&&j.ok){S.files[k]=(S.files[k]||[]).concat([{id:j.id,name:j.name,size:j.size}]);saveDraft();it.replaceWith(fileItem(k,{id:j.id,name:j.name,size:j.size},list));}else{it.remove();toast((j&&j.message)||t("upErr"),true);}};
+  x.onerror=function(){it.remove();toast(t("upErr"),true);};x.send(file);}
+function submit(){var miss=D.missing(S.tpl,S.answers,lang,true);document.querySelectorAll("#bf .f.bad").forEach(function(n){n.classList.remove("bad");});
+  if(miss.length){miss.forEach(function(m){var n=fieldNodes[m.k];if(n)n.classList.add("bad");});toast(t("missing")+" ("+miss.length+") — "+t("missingN"),true);var first=fieldNodes[miss[0].k];if(first)first.scrollIntoView({behavior:"smooth",block:"center"});return;}
+  var btn=document.querySelector("#bf .btn");btn.disabled=true;btn.textContent=t("sending");
+  var files={};for(var k in S.files)if((S.files[k]||[]).length)files[k]=S.files[k].map(function(x){return x.id;});
+  api("POST","/brief",{tpl:S.tpl,lang:lang,answers:S.answers,files:files}).then(function(j){
+    if(j.ok){S.submitted=j;clearDraft();S.view="done";loadInfo(true);render();}
+    else{btn.disabled=false;btn.textContent=t("send");if(j.missing){j.missing.forEach(function(m){var n=fieldNodes[m.k];if(n)n.classList.add("bad");});toast(t("missing"),true);}else if(j.__status===410)toast(t("gone"),true);else toast(j.message||t("err"),true);}
+  }).catch(function(){btn.disabled=false;btn.textContent=t("send");toast(t("offline"),true);});}
+function renderDone(){var app=document.getElementById("app");header(S.info.company,"",t("brief"));
+  app.replaceChildren(el("div",{class:"card"},el("div",{class:"done"},el("div",{class:"big"},"✅"),el("h2",null,t("thanks")),el("p",{class:"muted"},t("thanksTxt")),el("p",{class:"sm",style:"margin-top:8px"},t("no")+": ",el("b",{style:"font-family:monospace;color:var(--accent)"},"#"+S.submitted.no)),
+    el("div",{class:"acts",style:"margin-top:22px"},el("button",{class:"btn",type:"button",onclick:function(){S.view="home";render();setTimeout(function(){var c=document.querySelector(".tpls");if(c)c.scrollIntoView({behavior:"smooth"});},50);}},t("another")),el("button",{class:"btn ghost",type:"button",onclick:function(){S.view="home";render();}},t("home"))))));
+  window.scrollTo(0,0);}
+function render(){applyLang();if(!S.info)return;if(S.view==="form")renderForm();else if(S.view==="done")renderDone();else renderHome();}
+function loadInfo(silent){return api("GET","/info").then(function(j){if(j.ok){S.info=j;if(!silent||S.view!=="form")render();}else{if(j.__status===410)header("RG-Designs",t("gone"),"!");else header("RG-Designs",t("err"),"!");document.getElementById("app").replaceChildren(el("p",{class:"center muted",style:"padding:30px"},j.__status===410?t("gone"):(j.message||t("err"))));}}).catch(function(){header("RG-Designs",t("offline"),"!");document.getElementById("app").replaceChildren(el("p",{class:"center muted",style:"padding:30px"},t("offline")));});}
+applyLang();
+if(!token){header("RG-Designs",t("gone"),"!");document.getElementById("app").replaceChildren(el("p",{class:"center muted",style:"padding:30px"},t("gone")));}
+else loadInfo();
+})();
+</script>
+</body>
+</html>
